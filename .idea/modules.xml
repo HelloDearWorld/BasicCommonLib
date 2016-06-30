@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BasicCommonLib.iml" filepath="$PROJECT_DIR$/BasicCommonLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LibCommon/app.iml" filepath="$PROJECT_DIR$/LibCommon/app.iml" />
+    </modules>
+  </component>
+</project>
