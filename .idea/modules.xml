@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BasicCommonLib.iml" filepath="$PROJECT_DIR$/BasicCommonLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LibCommon/LibCommon.iml" filepath="$PROJECT_DIR$/LibCommon/LibCommon.iml" />
       <module fileurl="file://$PROJECT_DIR$/LibCommon/app.iml" filepath="$PROJECT_DIR$/LibCommon/app.iml" />
     </modules>
   </component>
