@@ -1,5 +1,6 @@
 package com.basiccommonlib;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.basiccommonlib.activity.BaseCommonActivity;
@@ -7,8 +8,6 @@ import com.basiccommonlib.activity.BaseCommonActivity;
 import butterknife.ButterKnife;
 
 public class MainActivity extends BaseCommonActivity {
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +24,10 @@ public class MainActivity extends BaseCommonActivity {
     @Override
     public void initViews() {
 
+        Intent intent = getIntent();
+        if (intent.hasExtra("flag")) {
+            intent.putExtra("flag", (Integer) 2);
+        };
     }
 
     @Override
@@ -32,7 +35,4 @@ public class MainActivity extends BaseCommonActivity {
 
     }
 
-
-
 }
-

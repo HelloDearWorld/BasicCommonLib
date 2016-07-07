@@ -49,6 +49,7 @@ public abstract class BaseCommonActivity extends AppCompatActivity {
         if (finish) {
             finish();
         }
+
     }
 
     public void CountJump(long mills, final Class<? extends Activity> clazz, final boolean finish) {
