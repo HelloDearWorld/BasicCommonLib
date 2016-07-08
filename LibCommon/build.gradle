@@ -34,4 +34,5 @@ dependencies {
     compile 'com.zhy:autolayout:1.4.3'//屏幕适配
     compile 'com.orhanobut:logger:1.15'//日志
     compile files('libs/universal-image-loader-1.9.5.jar')//图片缓存策略
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:v1.8.5'
 }
