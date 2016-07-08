@@ -16,6 +16,7 @@ public class MainActivity extends BaseCommonActivity {
     @Override
     public void getFromIntent() {
 
+
     }
 
     @Override

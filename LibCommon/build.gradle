@@ -17,12 +17,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    allprojects {
+        repositories {
+
+            maven { url "https://jitpack.io" }
+        }
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.zhy:okhttputils:2.6.2'
-    compile 'com.zhy:autolayout:1.4.3'
+    compile 'com.android.support:design:23.2.1'
+    compile 'com.zhy:okhttputils:2.6.2'//网络相关
+    compile 'com.zhy:autolayout:1.4.3'//屏幕适配
+    compile 'com.orhanobut:logger:1.15'//日志
+    compile files('libs/universal-image-loader-1.9.5.jar')//图片缓存策略
 }

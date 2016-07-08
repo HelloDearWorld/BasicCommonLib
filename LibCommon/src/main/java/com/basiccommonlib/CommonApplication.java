@@ -5,46 +5,39 @@
  */
 package com.basiccommonlib;
 
+import android.app.Application;
+
+import com.basiccommonlib.Utils.BasicCommonHelper;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+
 /**
  * @author
  * @since 16/6/30 下午4:45
  * @version 1.0
- * <p><strong>Features draft description.主要功能介绍</strong></p>
+ *          <p>
+ *          <strong>Features draft description.主要功能介绍</strong>
+ *          </p>
  */
-public class CommonApplication {
+public class CommonApplication extends Application {
 
+    public static DisplayImageOptions mOptions = null;
 
-// ===========================================================
-    // Constants
-    // ===========================================================
+    private static CommonApplication  instance;
 
+    public CommonApplication() {
 
-    // ===========================================================
-    // Fields
-    // ===========================================================
+    }
 
+    public static CommonApplication getInstance() {
+        return instance;
+    }
+    @Override
+    public void onCreate() {
+        super.onCreate();
 
-    // ===========================================================
-    // Constructors
-    // ===========================================================
+        BasicCommonHelper libCommonHelper = new BasicCommonHelper(this);
+        libCommonHelper.initImageLoaderConfiguration();
+        mOptions = libCommonHelper.initImageLoaderOptions();
+    }
 
-
-    // ===========================================================
-    // Getter &amp; Setter
-    // ===========================================================
-
-
-    // ===========================================================
-    // Methods for/from SuperClass/Interfaces
-    // ===========================================================
-
-
-    // ===========================================================
-    // Methods
-    // ===========================================================
-
-
-    // ===========================================================
-    // Inner and Anonymous Classes
-    // =========================================================== 
 }
