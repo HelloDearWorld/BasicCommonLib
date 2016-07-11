@@ -8,6 +8,8 @@ package com.basiccommonlib.weight;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
@@ -25,6 +27,8 @@ import com.basiccommonlib.R;
 public class CommonViewpager extends RelativeLayout {
 
     private Context context;
+    private ViewPager common_viewpager;
+    private TabLayout common_tablayout;
 
     public CommonViewpager(Context context) {
         super(context);
@@ -51,6 +55,8 @@ public class CommonViewpager extends RelativeLayout {
 
         this.context = context;
         LayoutInflater.from(getContext()).inflate(R.layout.common_superviewpager, this);
+        common_viewpager=(ViewPager)findViewById(R.id.common_viewpager);
+        common_tablayout=(TabLayout)findViewById(R.id.common_tablayout);
     }
 
 }
