@@ -5,7 +5,13 @@
  */
 package com.basiccommonlib.fragment;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
+
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  * @author
@@ -16,32 +22,45 @@ import android.support.v4.app.Fragment;
  *          </p>
  */
 public class BaseCommonFragment extends Fragment {
+    private Handler handler_jump;
 
-    // ===========================================================
-    // Constants
-    // ===========================================================
+    public void gotoActivity(Class<? extends Activity> clazz) {
+        gotoActivity(clazz, false);
+    }
 
-    // ===========================================================
-    // Fields
-    // ===========================================================
+    public void gotoActivity(Class<? extends Activity> clazz, boolean finish) {
+        Intent intent = new Intent(getActivity(), clazz);
+        startActivity(intent);
+        if (finish) {
+            getActivity().finish();
+        }
 
-    // ===========================================================
-    // Constructors
-    // ===========================================================
+    }
 
-    // ===========================================================
-    // Getter &amp; Setter
-    // ===========================================================
+    public void CountJump(long mills, final Class<? extends Activity> clazz, final boolean finish) {
+        this.handler_jump = new Handler();
+        this.handler_jump.postDelayed(new Runnable() {
+            public void run() {
+                BaseCommonFragment.this.gotoActivity(clazz, finish);
+            }
+        }, mills);
+    }
 
-    // ===========================================================
-    // Methods for/from SuperClass/Interfaces
-    // ===========================================================
+    public void gotoActivity(Class<? extends Activity> clazz, boolean finish, Bundle pBundle) {
+        Intent intent = new Intent(getActivity(), clazz);
+        if (pBundle != null) {
+            intent.putExtras(pBundle);
+        }
+        startActivity(intent);
+        if (finish) {
+            getActivity().finish();
+        }
+    }
 
-    // ===========================================================
-    // Methods
-    // ===========================================================
-
-    // ===========================================================
-    // Inner and Anonymous Classes
-    // ===========================================================
+    @Override
+    public void onStop() {
+        super.onStop();
+        ImageLoader.getInstance().clearMemoryCache();
+        ImageLoader.getInstance().clearDiskCache();
+    }
 }

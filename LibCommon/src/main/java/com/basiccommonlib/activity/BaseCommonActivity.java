@@ -12,6 +12,8 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 /**
  * @author
  * @since 16/6/30 下午4:48
@@ -75,5 +77,13 @@ public abstract class BaseCommonActivity extends AppCompatActivity {
     public void finish(int animIn, int animOut) {
         super.finish();
         overridePendingTransition(animIn, animOut);
+    }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        ImageLoader.getInstance().clearMemoryCache();
+        ImageLoader.getInstance().clearDiskCache();
     }
 }

@@ -29,6 +29,7 @@ public class ImageUtil {
     public static void showImage(String imagreUrl, ImageView imageView, DisplayImageOptions mOptions) {
 
         ImageLoader.getInstance().displayImage(imagreUrl, imageView, mOptions, null);
+
     }
 
     // ===========================================================
