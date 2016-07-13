@@ -1,11 +1,10 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "com.basiccommonlib"
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
@@ -26,13 +25,18 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:design:23.2.1'
-    compile 'com.zhy:okhttputils:2.6.2'//网络相关
-    compile 'com.zhy:autolayout:1.4.3'//屏幕适配
-    compile 'com.orhanobut:logger:1.15'//日志
-    compile files('libs/universal-image-loader-1.9.5.jar')//图片缓存策略
+    compile 'com.zhy:okhttputils:2.6.2'
+    //网络相关
+    compile 'com.zhy:autolayout:1.4.3'
+    //屏幕适配
+    compile 'com.orhanobut:logger:1.15'
+    //日志
+    compile files('libs/universal-image-loader-1.9.5.jar')
+    //图片缓存策略
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:v1.8.5'
+    compile 'com.google.code.gson:gson:2.2.4'
 }

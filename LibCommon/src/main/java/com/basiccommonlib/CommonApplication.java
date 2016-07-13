@@ -31,6 +31,7 @@ public class CommonApplication extends Application {
     public static CommonApplication getInstance() {
         return instance;
     }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -38,6 +39,8 @@ public class CommonApplication extends Application {
         BasicCommonHelper libCommonHelper = new BasicCommonHelper(this);
         libCommonHelper.initImageLoaderConfiguration();
         mOptions = libCommonHelper.initImageLoaderOptions();
+
+        libCommonHelper.initOkHttpUtils();
     }
 
 }

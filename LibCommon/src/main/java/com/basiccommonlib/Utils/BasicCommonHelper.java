@@ -16,24 +16,29 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.utils.StorageUtils;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.log.LoggerInterceptor;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
 
 /**
  * @author
  * @version 1.0
- *          <p><strong>Features draft description.主要功能介绍</strong></p>
+ *          <p>
+ *          <strong>Features draft description.主要功能介绍</strong>
+ *          </p>
  * @since 16/7/7 下午2:38
  */
 public class BasicCommonHelper {
-
 
     private Application application;
 
     public BasicCommonHelper(Application application) {
         this.application = application;
     }
-
 
     /**
      * imageLoader设置
@@ -44,22 +49,21 @@ public class BasicCommonHelper {
         File cacheDir = StorageUtils.getOwnCacheDirectory(application, "basiccommon/image/Cache");
 
         ImageLoaderConfiguration config =
-                new ImageLoaderConfiguration.Builder(application).memoryCacheExtraOptions(480, 800)
-                        .threadPoolSize(2).threadPriority(Thread.NORM_PRIORITY - 2).denyCacheImageMultipleSizesInMemory()
-                        // You can pass your own memory cache implementation/
-                        .memoryCache(new WeakMemoryCache()).memoryCacheSize(1024).diskCacheSize(50 * 1024 * 1024)
-                        // .discCacheFileNameGenerator(new Md5FileNameGenerator())//
-                        .tasksProcessingOrder(QueueProcessingType.LIFO).diskCacheFileCount(100)
-                        .diskCache(new UnlimitedDiskCache(cacheDir))
-                        .defaultDisplayImageOptions(DisplayImageOptions.createSimple())
-                        // .imageDownloader(new
-                        // BaseImageDownloader(getApplicationContext(), 5 * 1000, 30
-                        // *
-                        // 1000)).writeDebugLogs() // Remove
-                        .build();
+            new ImageLoaderConfiguration.Builder(application).memoryCacheExtraOptions(480, 800).threadPoolSize(2)
+                    .threadPriority(Thread.NORM_PRIORITY - 2).denyCacheImageMultipleSizesInMemory()
+                    // You can pass your own memory cache implementation/
+                    .memoryCache(new WeakMemoryCache()).memoryCacheSize(1024).diskCacheSize(50 * 1024 * 1024)
+                    // .discCacheFileNameGenerator(new Md5FileNameGenerator())//
+                    .tasksProcessingOrder(QueueProcessingType.LIFO).diskCacheFileCount(100)
+                    .diskCache(new UnlimitedDiskCache(cacheDir))
+                    .defaultDisplayImageOptions(DisplayImageOptions.createSimple())
+                    // .imageDownloader(new
+                    // BaseImageDownloader(getApplicationContext(), 5 * 1000, 30
+                    // *
+                    // 1000)).writeDebugLogs() // Remove
+                    .build();
 
     }
-
 
     /**
      * imageload加载配置
@@ -80,10 +84,21 @@ public class BasicCommonHelper {
 
         return mOptions;
     }
-    // ===========================================================
 
+    public void initOkHttpUtils() {
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                // .addInterceptor(new LoggerInterceptor("TAG"))
+                .connectTimeout(10000L, TimeUnit.MILLISECONDS).readTimeout(10000L, TimeUnit.MILLISECONDS)
+                .addInterceptor(new LoggerInterceptor("OkHttpUtils"))
+                // 其他配置
+                .build();
+
+        OkHttpUtils.initClient(okHttpClient);
+    }
+    // ===========================================================
 
     // ===========================================================
     // Inner and Anonymous Classes
-    // =========================================================== 
+    // ===========================================================
 }
