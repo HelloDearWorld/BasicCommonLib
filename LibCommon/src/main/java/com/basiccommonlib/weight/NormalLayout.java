@@ -89,10 +89,11 @@ public class NormalLayout extends RelativeLayout {
         float leftIconGap = typedArray.getDimension(R.styleable.commonattr_normallayout_leftIconGap, 0);
         float topIconGap = typedArray.getDimension(R.styleable.commonattr_normallayout_topIconGap, 0);
         float rightIconGap = typedArray.getDimension(R.styleable.commonattr_normallayout_rightIconGap, 0);
-        float buttomIconGap = typedArray.getDimension(R.styleable.commonattr_normallayout_bottomIcon, 0);
+        float buttomIconGap = typedArray.getDimension(R.styleable.commonattr_normallayout_buttomIconGap, 0);
 
         String textName = typedArray.getString(R.styleable.commonattr_normallayout_textName);
-        float textSize = typedArray.getResourceId(R.styleable.commonattr_normallayout_textSize, 20);
+        float textSize = typedArray.getDimension(R.styleable.commonattr_normallayout_textSize, 20);
+        float imageSize = typedArray.getDimension(R.styleable.commonattr_normallayout_imageSize, 20);
         int textColor = typedArray.getResourceId(R.styleable.commonattr_normallayout_textColor, Color.BLACK);
 
         typedArray.recycle();
@@ -108,29 +109,36 @@ public class NormalLayout extends RelativeLayout {
         normalLayout_RottomImage.setVisibility(View.VISIBLE);
 
 
+        if (imageSize > 0) {
+
+            LayoutParams leftLayoutParams = (LayoutParams) normalLayout_LeftImage.getLayoutParams();
+            leftLayoutParams.width = (int) imageSize;
+            leftLayoutParams.height = (int) imageSize;
+            normalLayout_LeftImage.setLayoutParams(leftLayoutParams);
+
+
+            LayoutParams topLayoutParams = (LayoutParams) normalLayout_TopImage.getLayoutParams();
+            topLayoutParams.width = (int) imageSize;
+            topLayoutParams.height = (int) imageSize;
+            normalLayout_TopImage.setLayoutParams(topLayoutParams);
+
+
+            LayoutParams rightLayoutParams = (LayoutParams) normalLayout_RightImage.getLayoutParams();
+            rightLayoutParams.width = (int) imageSize;
+            rightLayoutParams.height = (int) imageSize;
+            normalLayout_RightImage.setLayoutParams(rightLayoutParams);
+
+            LayoutParams bottomLayoutParams = (LayoutParams) normalLayout_RottomImage.getLayoutParams();
+            bottomLayoutParams.width = (int) imageSize;
+            bottomLayoutParams.height = (int) imageSize;
+            normalLayout_RottomImage.setLayoutParams(bottomLayoutParams);
+
+        }
+
+
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-
-        if (null != normalLayout_LeftImage.getDrawable()) {
-
-            layoutParams.setMargins(0, 0, (int) leftIconGap, 0);
-            normalLayout_LeftImage.setLayoutParams(layoutParams);
-        }
-
-        if (null != normalLayout_TopImage.getDrawable()) {
-            layoutParams.setMargins(0, 0, 0, (int) topIconGap);
-            normalLayout_TopImage.setLayoutParams(layoutParams);
-        }
-
-        if (null != normalLayout_RightImage.getDrawable()) {
-            layoutParams.setMargins((int) rightIconGap, 0, 0, 0);
-            normalLayout_RightImage.setLayoutParams(layoutParams);
-        }
-
-        if (null != normalLayout_RottomImage.getDrawable()) {
-            layoutParams.setMargins(0, (int) buttomIconGap, 0, 0);
-            normalLayout_RottomImage.setLayoutParams(layoutParams);
-        }
-
+        layoutParams.setMargins((int) leftIconGap, (int) topIconGap, (int) rightIconGap, (int) buttomIconGap);
+        normalLayout_MidText.setLayoutParams(layoutParams);
 
         if (!EmptyUtil.isEmpty(textName)) {
             normalLayout_MidText.setText(textName);
@@ -141,7 +149,7 @@ public class NormalLayout extends RelativeLayout {
         }
 
         if (textColor > 0) {
-            normalLayout_MidText.setTextColor(textColor);
+            normalLayout_MidText.setTextColor(getResources().getColor(textColor));
         }
 
         invalidate();
