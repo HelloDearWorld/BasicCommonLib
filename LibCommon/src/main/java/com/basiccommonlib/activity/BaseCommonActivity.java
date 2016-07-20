@@ -29,11 +29,13 @@ public abstract class BaseCommonActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        oncreate(savedInstanceState);
         getFromIntent();
         initViews();
         initData();
     }
+
+    public abstract void oncreate(@Nullable Bundle savedInstanceState);
 
     public abstract void getFromIntent();
 
@@ -78,7 +80,6 @@ public abstract class BaseCommonActivity extends AppCompatActivity {
         super.finish();
         overridePendingTransition(animIn, animOut);
     }
-
 
     @Override
     protected void onStop() {

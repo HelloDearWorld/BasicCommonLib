@@ -3,6 +3,7 @@ package com.basiccommonlib;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.widget.TextView;
 
 import com.basiccommonlib.activity.BaseCommonActivity;
@@ -21,6 +22,11 @@ public class MainActivity extends BaseCommonActivity {
     }
 
     @Override
+    public void oncreate(@Nullable Bundle savedInstanceState) {
+
+    }
+
+    @Override
     public void getFromIntent() {
 
     }
@@ -31,7 +37,7 @@ public class MainActivity extends BaseCommonActivity {
         Intent intent = getIntent();
         if (intent.hasExtra("flag")) {
             intent.putExtra("flag", (Integer) 2);
-        } ;
+        };
     }
 
     @Override

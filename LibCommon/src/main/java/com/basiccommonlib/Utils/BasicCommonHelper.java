@@ -12,6 +12,7 @@ import com.basiccommonlib.R;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
@@ -62,7 +63,7 @@ public class BasicCommonHelper {
                     // *
                     // 1000)).writeDebugLogs() // Remove
                     .build();
-
+        ImageLoader.getInstance().init(config);
     }
 
     /**

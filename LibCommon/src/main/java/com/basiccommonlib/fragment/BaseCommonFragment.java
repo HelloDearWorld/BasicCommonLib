@@ -24,28 +24,29 @@ import com.nostra13.universalimageloader.core.ImageLoader;
  *          <strong>Features draft description.主要功能介绍</strong>
  *          </p>
  *
- * @from https://github.com/xmagicj/LazyFragment/blob/master/app/src/main/java/com/xmagicj/android/lazyfragment/BaseFragment.java
+ * @from https://github.com/xmagicj/LazyFragment/blob/master/app/src/main/java/
+ *       com/xmagicj/android/lazyfragment/BaseFragment.java
  */
 public abstract class BaseCommonFragment extends Fragment {
 
-    private Handler handler_jump;
+    public Activity       activity;
+    public View           rootView    = null;
+    private Handler       handler_jump;
     /**
      * 是否可见状态
      */
-    private boolean isVisible;
+    private boolean       isVisible;
     /**
-     * 标志位，View已经初始化完成。
-     * 2016/04/29
-     * 用isAdded()属性代替
-     * 2016/05/03
+     * 标志位，View已经初始化完成。 2016/04/29 用isAdded()属性代替 2016/05/03
      * isPrepared还是准一些,isAdded有可能出现onCreateView没走完但是isAdded了
      */
-    private boolean isPrepared;
+    private boolean       isPrepared;
     /**
      * 是否第一次加载
      */
-    private boolean isFirstLoad = true;
+    private boolean       isFirstLoad = true;
 
+    public LayoutInflater inflater;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -58,17 +59,20 @@ public abstract class BaseCommonFragment extends Fragment {
         // 取消 isFirstLoad = true的注释 , 因为上述的initData本身就是应该执行的
         // onCreateView执行 证明被移出过FragmentManager initData确实要执行.
         // 如果这里有数据累加的Bug 请在initViews方法里初始化您的数据 比如 list.clear();
+        activity = getActivity();
         isFirstLoad = true;
         View view = initViews(inflater, container, savedInstanceState);
         isPrepared = true;
         lazyLoad();
+        this.inflater = inflater;
         return view;
     }
 
     /**
      * 如果是与ViewPager一起使用，调用的是setUserVisibleHint
      *
-     * @param isVisibleToUser 是否显示出来了
+     * @param isVisibleToUser
+     *            是否显示出来了
      */
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
@@ -86,8 +90,9 @@ public abstract class BaseCommonFragment extends Fragment {
      * 如果是通过FragmentTransaction的show和hide的方法来控制显示，调用的是onHiddenChanged.
      * 若是初始就show的Fragment 为了触发该事件 需要先hide再show
      *
-     * @param hidden hidden True if the fragment is now hidden, false if it is not
-     *               visible.
+     * @param hidden
+     *            hidden True if the fragment is now hidden, false if it is not
+     *            visible.
      */
     @Override
     public void onHiddenChanged(boolean hidden) {
@@ -109,12 +114,11 @@ public abstract class BaseCommonFragment extends Fragment {
     }
 
     /**
-     * 要实现延迟加载Fragment内容,需要在 onCreateView
-     * isPrepared = true;
+     * 要实现延迟加载Fragment内容,需要在 onCreateView isPrepared = true;
      */
     protected void lazyLoad() {
         if (!isPrepared || !isVisible || !isFirstLoad) {
-            //if (!isAdded() || !isVisible || !isFirstLoad) {
+            // if (!isAdded() || !isVisible || !isFirstLoad) {
             return;
         }
         isFirstLoad = false;
@@ -124,7 +128,6 @@ public abstract class BaseCommonFragment extends Fragment {
     protected abstract View initViews(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
 
     protected abstract void initData();
-
 
     public void gotoActivity(Class<? extends Activity> clazz) {
         gotoActivity(clazz, false);
@@ -163,6 +166,6 @@ public abstract class BaseCommonFragment extends Fragment {
     public void onStop() {
         super.onStop();
         ImageLoader.getInstance().clearMemoryCache();
-        ImageLoader.getInstance().clearDiskCache();
+        // ImageLoader.getInstance().clearDiskCache();
     }
 }

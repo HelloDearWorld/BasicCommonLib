@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/normalLayout_LeftImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/normalLayout_MidText_Layout"
+        android:src="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/normalLayout_RightImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/normalLayout_MidText_Layout"
+        android:src="@mipmap/ic_launcher"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/normalLayout_TopImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/normalLayout_MidText_Layout"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ic_launcher"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/normalLayout_RottomImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/normalLayout_MidText_Layout"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ic_launcher"
+        android:visibility="gone" />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/normalLayout_MidText_Layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/normalLayout_MidText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="BasicCommonUtil" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

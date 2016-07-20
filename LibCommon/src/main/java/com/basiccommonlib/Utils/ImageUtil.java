@@ -5,6 +5,7 @@
  */
 package com.basiccommonlib.Utils;
 
+import android.content.Context;
 import android.widget.ImageView;
 
 import com.basiccommonlib.CommonApplication;
@@ -13,11 +14,11 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  * @author
- * @since 16/7/11 下午3:16
  * @version 1.0
  *          <p>
  *          <strong>Features draft description.主要功能介绍</strong>
  *          </p>
+ * @since 16/7/11 下午3:16
  */
 public class ImageUtil {
 
@@ -30,6 +31,14 @@ public class ImageUtil {
 
         ImageLoader.getInstance().displayImage(imagreUrl, imageView, mOptions, null);
 
+    }
+
+    public static void showImage(Context ctx, int drawableID, ImageView imageView) {
+
+        if (drawableID > 0) {
+            imageView.setImageDrawable(AndroidVersionAdapterUtil.getDrawable(ctx, drawableID));
+
+        }
     }
 
     // ===========================================================
