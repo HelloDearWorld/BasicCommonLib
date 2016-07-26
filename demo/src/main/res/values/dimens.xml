@@ -2,4 +2,13 @@
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+
+    <dimen name="text_size_level_one">60px</dimen>
+    <dimen name="text_size_level_two">50px</dimen>
+    <dimen name="text_size_level_three">40px</dimen>
+    <dimen name="text_size_level_four">30px</dimen>
+    <dimen name="text_size_level_five">20px</dimen>
+
+
+    <dimen name="around_gap">20px</dimen>
 </resources>

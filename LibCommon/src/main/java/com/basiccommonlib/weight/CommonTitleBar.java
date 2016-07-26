@@ -19,16 +19,16 @@ import com.zhy.autolayout.AutoLinearLayout;
 
 /**
  * @author
- * @since 16/6/30 下午5:39
  * @version 1.0
  *          <p>
  *          <strong>Features draft description.主要功能介绍</strong>
  *          </p>
+ * @since 16/6/30 下午5:39
  */
 public class CommonTitleBar extends RelativeLayout {
 
 
-    private Context  context;
+    private Context context;
 
     private AutoLinearLayout common_title_left_layout;
     private TextView common_title_left_textview;
@@ -65,15 +65,15 @@ public class CommonTitleBar extends RelativeLayout {
         this.context = context;
 
         LayoutInflater.from(getContext()).inflate(R.layout.common_titlebar, this);
-        common_title_left_layout=(AutoLinearLayout)findViewById(R.id.common_title_left_layout);
-        common_title_left_textview=(TextView)findViewById(R.id.common_title_left_textview);
-        common_title_left_imageview=(ImageView)findViewById(R.id.common_title_left_imageview);
-        common_title_middle_layout=(AutoLinearLayout)findViewById(R.id.common_title_middle_layout);
-        common_title_middle_textview=(TextView)findViewById(R.id.common_title_middle_textview);
-        common_title_middle_imageview=(ImageView)findViewById(R.id.common_title_middle_imageview);
-        common_title_right_layout=(AutoLinearLayout)findViewById(R.id.common_title_right_layout);
-        common_title_right_textview=(TextView)findViewById(R.id.common_title_right_textview);
-        common_title_right_imageview=(ImageView)findViewById(R.id.common_title_right_imageview);
+        common_title_left_layout = (AutoLinearLayout) findViewById(R.id.common_title_left_layout);
+        common_title_left_textview = (TextView) findViewById(R.id.common_title_left_textview);
+        common_title_left_imageview = (ImageView) findViewById(R.id.common_title_left_imageview);
+        common_title_middle_layout = (AutoLinearLayout) findViewById(R.id.common_title_middle_layout);
+        common_title_middle_textview = (TextView) findViewById(R.id.common_title_middle_textview);
+        common_title_middle_imageview = (ImageView) findViewById(R.id.common_title_middle_imageview);
+        common_title_right_layout = (AutoLinearLayout) findViewById(R.id.common_title_right_layout);
+        common_title_right_textview = (TextView) findViewById(R.id.common_title_right_textview);
+        common_title_right_imageview = (ImageView) findViewById(R.id.common_title_right_imageview);
 
 
     }
