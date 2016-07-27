@@ -53,7 +53,7 @@ public class BasicCommonHelper {
             new ImageLoaderConfiguration.Builder(application).memoryCacheExtraOptions(480, 800).threadPoolSize(2)
                     .threadPriority(Thread.NORM_PRIORITY - 2).denyCacheImageMultipleSizesInMemory()
                     // You can pass your own memory cache implementation/
-                    .memoryCache(new WeakMemoryCache()).memoryCacheSize(1024).diskCacheSize(50 * 1024 * 1024)
+                    .memoryCache(new WeakMemoryCache()).memoryCacheSize(1024*1024).diskCacheSize(50 * 1024 * 1024)
                     // .discCacheFileNameGenerator(new Md5FileNameGenerator())//
                     .tasksProcessingOrder(QueueProcessingType.LIFO).diskCacheFileCount(100)
                     .diskCache(new UnlimitedDiskCache(cacheDir))

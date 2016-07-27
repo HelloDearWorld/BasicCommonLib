@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import com.basiccommonlib.CommonApplication;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 /**
  * @author
@@ -33,13 +34,21 @@ public class ImageUtil {
 
     }
 
+    public static void showImage(String imagreUrl, ImageView imageView, DisplayImageOptions mOptions, ImageLoadingListener imageLoadingListener) {
+
+        ImageLoader.getInstance().displayImage(imagreUrl, imageView, mOptions, imageLoadingListener);
+
+    }
+
     public static void showImage(Context ctx, int drawableID, ImageView imageView) {
 
         if (drawableID > 0) {
             imageView.setImageDrawable(AndroidVersionAdapterUtil.getDrawable(ctx, drawableID));
 
         }
+
     }
+
 
     // ===========================================================
     // Constants
