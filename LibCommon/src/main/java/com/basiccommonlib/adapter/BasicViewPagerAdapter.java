@@ -10,7 +10,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.basiccommonlib.Utils.EmptyUtil;
+import com.basiccommonlib.utils.EmptyUtil;
 import com.basiccommonlib.fragment.BaseCommonFragment;
 
 import java.util.List;

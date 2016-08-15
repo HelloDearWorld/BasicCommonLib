@@ -3,7 +3,7 @@
  * LuckyNest
  * GenericsUtils.java
  */
-package com.basiccommonlib.Utils;
+package com.basiccommonlib.utils;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

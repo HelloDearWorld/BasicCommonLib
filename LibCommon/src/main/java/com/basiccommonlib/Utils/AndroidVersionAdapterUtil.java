@@ -3,7 +3,7 @@
  * LuckyNest
  * AndroidVersionAdapterUtil.java
  */
-package com.basiccommonlib.Utils;
+package com.basiccommonlib.utils;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

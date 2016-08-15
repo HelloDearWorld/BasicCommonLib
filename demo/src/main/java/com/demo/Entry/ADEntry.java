@@ -5,12 +5,16 @@
  */
 package com.demo.Entry;
 
+import org.greenrobot.greendao.annotation.Entity;
+
 /**
  * @author
  * @version 1.0
  *          <p><strong>Features draft description.主要功能介绍</strong></p>
  * @since 16/7/26 下午2:26
  */
+
+@Entity
 public class ADEntry {
 
 
@@ -21,7 +25,6 @@ public class ADEntry {
      * type : 1
      * extra : null
      */
-
     private String title;
     private String img;
     private String url;

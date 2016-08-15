@@ -3,7 +3,7 @@
  * LuckyNest
  * JsonGenericsSerializator.java
  */
-package com.basiccommonlib.Utils.okhttp;
+package com.basiccommonlib.utils.okhttp;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;

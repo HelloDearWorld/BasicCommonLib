@@ -1,4 +1,4 @@
-package com.basiccommonlib.Utils.okhttp;
+package com.basiccommonlib.utils.okhttp;
 
 /**
  * Created by JimGong on 2016/6/23.

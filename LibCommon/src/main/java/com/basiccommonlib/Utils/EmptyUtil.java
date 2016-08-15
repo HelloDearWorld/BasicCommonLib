@@ -3,7 +3,7 @@
  * BasicCommonLib
  * EmptyUtil.java
  */
-package com.basiccommonlib.Utils;
+package com.basiccommonlib.utils;
 
 import java.util.List;
 import java.util.Map;

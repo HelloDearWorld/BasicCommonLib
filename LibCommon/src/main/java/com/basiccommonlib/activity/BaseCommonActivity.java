@@ -16,11 +16,11 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  * @author
- * @since 16/6/30 下午4:48
  * @version 1.0
  *          <p>
  *          <strong>Features draft description.主要功能介绍</strong>
  *          </p>
+ * @since 16/6/30 下午4:48
  */
 public abstract class BaseCommonActivity extends AppCompatActivity {
 
@@ -85,6 +85,5 @@ public abstract class BaseCommonActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         ImageLoader.getInstance().clearMemoryCache();
-        ImageLoader.getInstance().clearDiskCache();
     }
 }

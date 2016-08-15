@@ -18,8 +18,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.basiccommonlib.R;
-import com.basiccommonlib.Utils.EmptyUtil;
-import com.basiccommonlib.Utils.ImageUtil;
+import com.basiccommonlib.utils.EmptyUtil;
+import com.basiccommonlib.utils.ImageUtil;
 import com.zhy.autolayout.AutoRelativeLayout;
 
 /**
@@ -153,5 +153,9 @@ public class NormalLayout extends RelativeLayout {
         }
 
         invalidate();
+    }
+
+    public void setText(String string) {
+        normalLayout_MidText.setText(string);
     }
 }

@@ -18,33 +18,32 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  * @author
- * @since 16/6/30 下午5:28
  * @version 1.0
  *          <p>
  *          <strong>Features draft description.主要功能介绍</strong>
  *          </p>
- *
  * @from https://github.com/xmagicj/LazyFragment/blob/master/app/src/main/java/
- *       com/xmagicj/android/lazyfragment/BaseFragment.java
+ * com/xmagicj/android/lazyfragment/BaseFragment.java
+ * @since 16/6/30 下午5:28
  */
 public abstract class BaseCommonFragment extends Fragment {
 
-    public Activity       activity;
-    public View           rootView    = null;
-    private Handler       handler_jump;
+    public Activity activity;
+    public View rootView = null;
+    private Handler handler_jump;
     /**
      * 是否可见状态
      */
-    private boolean       isVisible;
+    private boolean isVisible;
     /**
      * 标志位，View已经初始化完成。 2016/04/29 用isAdded()属性代替 2016/05/03
      * isPrepared还是准一些,isAdded有可能出现onCreateView没走完但是isAdded了
      */
-    private boolean       isPrepared;
+    private boolean isPrepared;
     /**
      * 是否第一次加载
      */
-    private boolean       isFirstLoad = true;
+    private boolean isFirstLoad = true;
 
     public LayoutInflater inflater;
 
@@ -71,8 +70,7 @@ public abstract class BaseCommonFragment extends Fragment {
     /**
      * 如果是与ViewPager一起使用，调用的是setUserVisibleHint
      *
-     * @param isVisibleToUser
-     *            是否显示出来了
+     * @param isVisibleToUser 是否显示出来了
      */
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
@@ -90,9 +88,8 @@ public abstract class BaseCommonFragment extends Fragment {
      * 如果是通过FragmentTransaction的show和hide的方法来控制显示，调用的是onHiddenChanged.
      * 若是初始就show的Fragment 为了触发该事件 需要先hide再show
      *
-     * @param hidden
-     *            hidden True if the fragment is now hidden, false if it is not
-     *            visible.
+     * @param hidden hidden True if the fragment is now hidden, false if it is not
+     *               visible.
      */
     @Override
     public void onHiddenChanged(boolean hidden) {
@@ -166,6 +163,5 @@ public abstract class BaseCommonFragment extends Fragment {
     public void onStop() {
         super.onStop();
         ImageLoader.getInstance().clearMemoryCache();
-        // ImageLoader.getInstance().clearDiskCache();
     }
 }

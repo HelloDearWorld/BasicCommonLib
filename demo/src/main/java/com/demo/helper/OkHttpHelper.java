@@ -105,7 +105,7 @@ public class OkHttpHelper {
             @Override
             public void onError(Call call, Exception e, int id) {
 
-                Logger.d(e.getMessage());
+                Logger.d(e.getMessage() + id);
                 if (null != genericsCallback) {
 
                     genericsCallback.onError(call, e, id);
